@@ -1,0 +1,52 @@
+"""
+Help
+-------------------------
+It is a header string showing help, from which we build our 'the' settings object
+"""
+the = {
+    'dump': False,
+    'go': None,
+    'seed': 937162211,
+    'bootstrap':512, 
+    'conf':0.05, 
+    'cliff':.4, 
+    'cohen':.35,
+    'Fmt': "{:.2f}", 
+    'width':40,
+    'n_iter': 20
+}
+
+help="\n\
+bins: multi-objective semi-supervised discetization\n\
+(c) 2023 Tim Menzies <timm@ieee.org> BSD-2\n\
+USAGE: lua bins.lua [OPTIONS] [-g ACTIONS]\n\
+OPTIONS:\n\
+  -b  --bins    initial number of bins       = 16\n\
+  -c  --cliffs  cliff's delta threshold      = .147\n\
+  -d  --d       different is over sd*d       = .35\n\
+  -f  --file    data file                    = ../../etc/data/auto93.csv\n\
+  -F  --Far     distance to distant          = .95\n\
+  -g  --go      start-up action              = nothing\n\
+  -h  --help    show help                    = false\n\
+  -H  --Halves  search space for clustering  = 512\n\
+  -m  --min     size of smallest cluster     = .5\n\
+  -M  --Max     numbers                      = 512\n\
+  -p  --p       dist coefficient             = 2\n\
+  -r  --rest    how many of rest to sample   = 4\n\
+  -R  --Reuse   child splits reuse a parent pole = true\n\
+  -s  --seed    random number seed           = 937162211\n\
+"
+
+egs = {}
+
+n = 0
+
+top_table = {'all': {'data' : [], 'evals' : 0}, 
+             'sway1': {'data' : [], 'evals' : 0}, 
+             'xpln1': {'data' : [], 'evals' : 0}, 
+             'top': {'data' : [], 'evals' : 0}}
+
+bottom_table = [[['all', 'all'],None], 
+                [['all', 'sway1'],None],  
+                [['sway1', 'xpln1'],None],  
+                [['sway1', 'top'],None]]

@@ -28,7 +28,5 @@ class Cols:
     
     def add(self, row):
         for t in [self.x, self.y]:
-            # print(t)
             for col in t:
-                # print(row.cells[col.at])
                 col.add(row.cells[col.at])

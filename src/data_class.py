@@ -173,7 +173,7 @@ class DATA:
                 j = j + 1
             return t if len(t0)==len(t) else merge(t)
         def merges(attr, ranges):
-            return list(map(pretty, merge(sorted(ranges, key = itemgetter('lo'))))), attr
+            return list(map(pretty, merge(sorted(ranges, key=lambda x: x['lo'])))), attr
         
         return misc.dkap(rule, merges)
 
@@ -196,7 +196,7 @@ class DATA:
         return intersection / union
 
     def better(self, row1, row2): # Using jaccard similarity
-        print("Inside new sway")
+        # print("Inside new sway")
         return self.jaccard_similarity(row1, row1) < self.jaccard_similarity(row1, row2)
     
     def xpln(self,best,rest):
@@ -212,7 +212,7 @@ class DATA:
                 if len(bestr) + len(restr) > 0: 
                     return v({'best': len(bestr), 'rest':len(restr)}),rule
         for ranges in misc.bins(self.cols.x,{'best':best.rows, 'rest':rest.rows}):
-            maxSizes[ranges[1]['txt']] = len(ranges)
+            maxSizes[ranges[0]['txt']] = len(ranges)
             print("")
             for range in ranges:
                 print(range['txt'], range['lo'], range['hi'])
@@ -226,6 +226,8 @@ class DATA:
         
     def selects(self, rule, rows):
         def disjunction(ranges, row):
+            if ranges == None:
+                ranges = [{'lo': 0, 'hi': 0, 'at': 0}]
             for range in ranges:
                 lo, hi, at = range['lo'], range['hi'], range['at']
                 x = row.cells[at]

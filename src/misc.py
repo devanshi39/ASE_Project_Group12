@@ -93,6 +93,9 @@ def kap(t, fun):
 def dkap(t, fun):
     u = {}
     for k,v in t.items():
+        if v == None:
+            v = [{'lo': 0, 'hi': 0, 'at': 0}]
+        # print("k,v", k, v)
         v, k = fun(k,v) 
         u[k or len(u)] = v
     return u
@@ -232,7 +235,7 @@ def bins(cols, rowss):
             for row in rows:
                 x = row.cells[col.at]
                 if x!= '?':
-                    k = int(bin(col,x))
+                    k = bin(col,x)
                     if not k in ranges:
                         ranges[k] = RANGE(col.at, col.txt, x)
                     extend(ranges[k], x, y)

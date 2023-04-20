@@ -70,6 +70,7 @@ class Num:
             self.n = self.n+1
             if self.n <= the['Max']:
                 self.has[v]= v
+            # print(type(v), v, self.mu)
             d = v - self.mu
             self.mu = self.mu + d/self.n
             self.m2 = self.m2 + d*(v - self.mu)

@@ -27,8 +27,9 @@ class DATA:
 
     def add(self, t):
         if self.cols:
-            t = Row(t) if type(t) == list else t
+            t = t if isinstance(t, Row) else Row(t)
             self.rows.append(t)
+            # print("Inside add", type(t))
             self.cols.add(t)
         else:
             self.cols = Cols(t)
@@ -94,7 +95,7 @@ class DATA:
         some = misc.many(rows,the['Halves'])
         A    = above if above and the['Reuse'] else misc.any(some)
         temp = sorted(list(map(function, some)), key = lambda k : k["dist"])
-        far = temp[int(the['Far'] * len(rows))//1]
+        far = temp[int((len(temp) -1) * the['Far'])]
         B    = far['row']
         c    = far['dist']
         left, right = [], []
@@ -176,15 +177,28 @@ class DATA:
         
         return misc.dkap(rule, merges)
 
-    def better(self, row1, row2):
-        s1, s2, ys = 0, 0, self.cols.y
-        for _,col in enumerate(ys):
-            x = col.norm(row1.cells[col.at])
-            y = col.norm(row2.cells[col.at])
-            s1 = s1 - math.exp(col.w * (x-y)/len(ys))
-            s2 = s2 - math.exp(col.w * (y-x)/len(ys))
-        return s1/len(ys) < s2/len(ys)
+    # def better(self, row1, row2):
+    #     print("Inside old sway")
+    #     s1, s2, ys = 0, 0, self.cols.y
+    #     for _,col in enumerate(ys):
+    #         x = col.norm(row1.cells[col.at])
+    #         y = col.norm(row2.cells[col.at])
+    #         s1 = s1 - math.exp(col.w * (x-y)/len(ys))
+    #         s2 = s2 - math.exp(col.w * (y-x)/len(ys))
+    #     return s1/len(ys) < s2/len(ys)
 
+    def jaccard_similarity(self, row1, row2):
+        ys = self.cols.y
+        set1 = set([col.norm(row1.cells[col.at]) for col in ys])
+        set2 = set([col.norm(row2.cells[col.at]) for col in ys])
+        intersection = len(set1.intersection(set2))
+        union = len(set1.union(set2))
+        return intersection / union
+
+    def better(self, row1, row2): # Using jaccard similarity
+        print("Inside new sway")
+        return self.jaccard_similarity(row1, row1) < self.jaccard_similarity(row1, row2)
+    
     def xpln(self,best,rest):
         tmp,maxSizes = [],{}
         def v(has):

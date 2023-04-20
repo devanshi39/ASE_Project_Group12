@@ -17,7 +17,7 @@ OPTIONS:\n\
   -b  --bins    initial number of bins       = 16\n\
   -c  --cliffs  cliff's delta threshold      = .147\n\
   -d  --d       different is over sd*d       = .35\n\
-  -f  --file    data file                    = ../etc/data/auto93.csv\n\
+  -f  --file    data file                    = ../etc/data/auto2.csv\n\
   -F  --Far     distance to distant          = .95\n\
   -g  --go      start-up action              = nothing\n\
   -h  --help    show help                    = false\n\
@@ -25,7 +25,7 @@ OPTIONS:\n\
   -m  --min     size of smallest cluster     = .5\n\
   -M  --Max     numbers                      = 512\n\
   -p  --p       dist coefficient             = 2\n\
-  -r  --rest    how many of rest to sample   = 4\n\
+  -r  --rest    how many of rest to sample   = 10\n\
   -R  --Reuse   child splits reuse a parent pole = true\n\
   -s  --seed    random number seed           = 937162211\n\
 "

@@ -205,7 +205,7 @@ def tree_test():
 
 def sway_test():
     data = DATA(the['file'])
-    best,rest = data.sway()
+    best,rest,_ = data.sway()
     print("\nall ", data.stats('mid', data.cols.y, 2))
     print("    ", data.stats('div', data.cols.y, 2))
     print("\nbest",best.stats('mid', best.cols.y, 2))
@@ -216,7 +216,7 @@ def sway_test():
 def bins_test():
     global b4
     data = DATA(the['file'])
-    best,rest = data.sway()
+    best,rest,_ = data.sway()
     print("all","","","",{'best':len(best.rows), 'rest':len(rest.rows)})
     for k,t in enumerate(bins(data.cols.x,{'best':best.rows, 'rest':rest.rows})):
         for range in t:

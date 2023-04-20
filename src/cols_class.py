@@ -1,32 +1,34 @@
+#TODO we need to refractor this
 from num_class import Num
 from sym_class import Sym
 import re
 import math
 
 class Cols:
-    def __init__(self,t):
+    def __init__(self, t):
         self.names = t
         self.all = []
         self.x = []
         self.y = []
         self.klass = None
-        for n,s in enumerate(t):
-            pattern = "^[A-Z]+"
-            col_cond = re.search(pattern, s)
-            if col_cond:
-                col = Num(n,s)
+
+        for col_name in t:
+            n = t.index(col_name)
+            col_name = col_name.strip()
+            if col_name[0].isupper():
+                col = Num(n, col_name)
             else:
-                col = Sym(n,s)
+                col = Sym(n, col_name)
             self.all.append(col)
-            if not re.search("X$", s):
-                if re.search("[!+-]$", s):
-                    self.y.append(col)
-                else:
-                    self.x.append(col)
-                if re.search("!$", s):
-                    self.klass = col
+
+            if not col_name[-1] == "X":
+                if "!" in col_name:
+                    self.klass=col
+                self.y.append(col) if re.findall("[!+-]$", col_name) else self.x.append(col)
     
-    def add(self,r):
+    def add(self, row):
         for t in [self.x, self.y]:
+            # print(t)
             for col in t:
-                col.add(r.cells[col.at])
+                # print(row.cells[col.at])
+                col.add(row.cells[col.at])

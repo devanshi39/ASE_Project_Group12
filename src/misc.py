@@ -7,7 +7,7 @@ import copy
 from copy import deepcopy
 import json
 from utils import *
-from DATA_class import DATA
+from data_class import DATA
 from sym_class import Sym
 from utils import *
 

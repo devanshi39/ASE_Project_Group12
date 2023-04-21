@@ -8,6 +8,7 @@
 ![GitHub release (latest by date)](https://img.shields.io/github/v/release/devanshi39/ASE_Project_Group12)
 ![GitHub pull requests](https://img.shields.io/github/issues-pr/devanshi39/ASE_Project_Group12)
 ![GitHub contributors](https://img.shields.io/github/contributors/devanshi39/ASE_Project_Group12)
+![GitHub repo size](https://img.shields.io/github/repo-size/devanshi39/ASE_Project_Group12)
 
 ## Table of Contents:
 1. [Problem Statement](#problem-statement)

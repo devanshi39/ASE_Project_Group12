@@ -1,0 +1,19 @@
+        Cost-    Completion+    Idle-    n_evals
+-----  -------  -------------  -------  ---------
+all     369.99           0.87     0.24          8
+sway1   374.71           0.87     0.26          8
+sway2   280.05           0.86     0.28          8
+xpln1   370.65           0.87     0.25          8
+xpln2   370.84           0.87     0.25          8
+top     369.99           0.87     0.24          8
+
+
+                Cost-    Completion+    Idle-
+--------------  -------  -------------  -------
+all to all        =        =              =
+all to sway1      ≠        =              ≠
+all to sway2      ≠        ≠              ≠
+sway1 to sway2    ≠        ≠              ≠
+sway1 to xpln1    ≠        =              ≠
+sway2 to xpln2    ≠        ≠              ≠
+sway1 to top      ≠        =              ≠

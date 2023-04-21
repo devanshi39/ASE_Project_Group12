@@ -13,8 +13,7 @@
 ## Table of Contents:
 1. [Problem Statement](#problem-statement)
 2. [License](#license)
-3. [Directory Structure](#directory-structure)
-4. [Contributors](#contributors)
+3. [Contributors](#contributors)
 
 ## Problem Statement
 The problem statement is to develop a multi-objective semi-supervised explanation system that can extract useful succinct summaries from a given dataset while working within a limited budget of accessing the values of any one example. The system should be able to select good examples from the dataset based on the extracted summary.

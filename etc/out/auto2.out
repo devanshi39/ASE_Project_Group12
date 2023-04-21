@@ -1,1 +1,19 @@
-demo
+        CityMPG+    HighwayMPG+    Weight-    Class-    n_evals
+-----  ----------  -------------  ---------  --------  ---------
+all         22.37          29.09    3072.9      19.51          6
+sway1       25             32       3010        16.1           6
+sway2       17.5           26       3930        19.85          6
+xpln1       24.62          30.85    2771.47     13.17          6
+xpln2       24.62          30.85    2771.47     13.17          6
+top         22.37          29.09    3072.9      19.51          6
+
+
+                CityMPG+    HighwayMPG+    Weight-    Class-
+--------------  ----------  -------------  ---------  --------
+all to all          =           =              =          =
+all to sway1        ≠           ≠              ≠          ≠
+all to sway2        ≠           ≠              ≠          ≠
+sway1 to sway2      ≠           ≠              ≠          ≠
+sway1 to xpln1      ≠           ≠              ≠          ≠
+sway2 to xpln2      ≠           ≠              ≠          ≠
+sway1 to top        ≠           ≠              ≠          ≠

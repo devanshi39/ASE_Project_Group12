@@ -1,0 +1,19 @@
+        MRE-    ACC+    PRED40+    n_evals
+-----  ------  ------  ---------  ---------
+all     82.32    5.17      22.1          12
+sway1   88.98    3.17      32.5          12
+sway2   93.57    1.84      34.38         12
+xpln1   82.31    5.17      22.03         12
+xpln2   82.52    5.01      22.58         12
+top     82.32    5.17      22.1          12
+
+
+                MRE-    ACC+    PRED40+
+--------------  ------  ------  ---------
+all to all        =       =       =
+all to sway1      ≠       ≠       ≠
+all to sway2      ≠       ≠       ≠
+sway1 to sway2    ≠       ≠       ≠
+sway1 to xpln1    ≠       ≠       ≠
+sway2 to xpln2    ≠       ≠       ≠
+sway1 to top      ≠       ≠       ≠

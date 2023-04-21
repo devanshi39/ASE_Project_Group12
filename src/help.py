@@ -27,9 +27,9 @@ OPTIONS:\n\
   -p  --p       dist coefficient             = 2\n\
   -r  --rest    how many of rest to sample   = 10\n\
   -R  --Reuse   child splits reuse a parent pole = true\n\
-  -s  --seed    random number seed           = 937162211\n\
+  -s  --seed    random number seed           = 2000\n\
 "
-Seed = 937162211
+Seed = 2000
 
 egs={}
 

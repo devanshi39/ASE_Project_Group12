@@ -52,18 +52,6 @@ class DATA:
             return rounded_value, col.txt
 
         return misc.kap(cols or self.cols.y, fun)
-    
-    def better(self, row1, row2):
-        
-        s1,s2,ys = 0,0,self.cols.y
-        for col in ys:
-            x = col.norm(row1.cells[col.at])
-            y = col.norm(row2.cells[col.at])
-
-            s1 = s1 - math.exp(col.w * (x-y) / len(ys))
-            s2 = s2 - math.exp(col.w * (y-x) / len(ys))
-        
-        return s1/len(ys) < s2/len(ys)
 
     def dist(self, row1, row2, cols = None):
         n,d = 0,0
@@ -131,14 +119,29 @@ class DATA:
             node['right'] = self.tree(right, mini, cols, node['B'])
         return node
     
-    def sway(self):
+    def sway_old(self):
         data = self
         def worker(rows, worse, evals = None, above = None):
             if len(rows) <= len(data.rows)**the['min']: 
                 return rows, misc.many(worse, the['rest']*len(rows)), evals
             else:
                 l,r,a,b,c,evals1 = self.half(rows, None, above)
-                if self.better(b,a):
+                if self.better_old(b,a):
+                    l,r,a,b = r,l,b,a
+                for row in r:
+                    worse.append(row)
+                return worker(l,worse,evals+evals1,a)
+        best,rest,evals1 = worker(data.rows,[],0)
+        return self.clone(best), self.clone(rest), evals1
+    
+    def sway_new(self):
+        data = self
+        def worker(rows, worse, evals = None, above = None):
+            if len(rows) <= len(data.rows)**the['min']: 
+                return rows, misc.many(worse, the['rest']*len(rows)), evals
+            else:
+                l,r,a,b,c,evals1 = self.half(rows, None, above)
+                if self.better_new(b,a):
                     l,r,a,b = r,l,b,a
                 for row in r:
                     worse.append(row)
@@ -177,15 +180,15 @@ class DATA:
         
         return misc.dkap(rule, merges)
 
-    # def better(self, row1, row2):
-    #     print("Inside old sway")
-    #     s1, s2, ys = 0, 0, self.cols.y
-    #     for _,col in enumerate(ys):
-    #         x = col.norm(row1.cells[col.at])
-    #         y = col.norm(row2.cells[col.at])
-    #         s1 = s1 - math.exp(col.w * (x-y)/len(ys))
-    #         s2 = s2 - math.exp(col.w * (y-x)/len(ys))
-    #     return s1/len(ys) < s2/len(ys)
+    def better_old(self, row1, row2):
+        # print("Inside old sway")
+        s1, s2, ys = 0, 0, self.cols.y
+        for _,col in enumerate(ys):
+            x = col.norm(row1.cells[col.at])
+            y = col.norm(row2.cells[col.at])
+            s1 = s1 - math.exp(col.w * (x-y)/len(ys))
+            s2 = s2 - math.exp(col.w * (y-x)/len(ys))
+        return s1/len(ys) < s2/len(ys)
 
     def jaccard_similarity(self, row1, row2):
         ys = self.cols.y
@@ -195,7 +198,7 @@ class DATA:
         union = len(set1.union(set2))
         return intersection / union
 
-    def better(self, row1, row2): # Using jaccard similarity
+    def better_new(self, row1, row2): # Using jaccard similarity
         # print("Inside new sway")
         return self.jaccard_similarity(row1, row1) < self.jaccard_similarity(row1, row2)
     
@@ -206,16 +209,16 @@ class DATA:
         def score(ranges):
             rule = self.RULE(ranges,maxSizes)
             if rule:
-                print(self.showRule(rule))
+                # print(self.showRule(rule))
                 bestr= self.selects(rule, best.rows)
                 restr= self.selects(rule, rest.rows)
                 if len(bestr) + len(restr) > 0: 
                     return v({'best': len(bestr), 'rest':len(restr)}),rule
         for ranges in misc.bins(self.cols.x,{'best':best.rows, 'rest':rest.rows}):
             maxSizes[ranges[0]['txt']] = len(ranges)
-            print("")
+            # print("")
             for range in ranges:
-                print(range['txt'], range['lo'], range['hi'])
+                # print(range['txt'], range['lo'], range['hi'])
                 tmp.append({'range':range, 'max':len(ranges),'val': v(range['y'].has)})
         rule,most=misc.firstN(sorted(tmp, key=itemgetter('val')),score)
         return rule,most

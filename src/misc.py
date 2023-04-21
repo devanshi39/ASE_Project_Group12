@@ -328,11 +328,12 @@ def firstN(sort_ranges,s_fun):
     
     print(" ")
     def function(num):
-        print(num['range']['txt'],
-              num['range']['lo'],
-              num['range']['hi'],
-              rnd(num['val']),
-              num['range']['y'].has)
+        return
+        # print(num['range']['txt'],
+        #       num['range']['lo'],
+        #       num['range']['hi'],
+        #       rnd(num['val']),
+        #       num['range']['y'].has)
     
     def useful(val):
         if val['val']> first_val/10 and val['val']>.05:

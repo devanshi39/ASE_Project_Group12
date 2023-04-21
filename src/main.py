@@ -141,11 +141,6 @@ def main():
         l = checks(best_sway2_dic, xpln2)
         l = ['sway2 to xpln2 '] + l
         table.append(l)
-        l=[]
-        l = checks(best_sway2_dic, xpln2)
-        l = ['sway2 to xpln2 '] + l
-        table.append(l)
-
         
 
         l=[]

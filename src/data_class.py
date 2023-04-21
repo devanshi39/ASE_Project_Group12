@@ -243,10 +243,11 @@ class DATA:
             return False
 
         def conjunction(row):
-            for ranges in rule.values():
-                if not disjunction(ranges, row):
-                    return False
-            return True
+            if rule !=-1:
+                for ranges in rule.values():
+                    if not disjunction(ranges, row):
+                        return False
+                return True
 
         def function(r):
             if conjunction(r):

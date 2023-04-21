@@ -1,32 +1,30 @@
-#TODO we need to refractor this
 from num_class import Num
 from sym_class import Sym
 import re
-import math
 
 class Cols:
-    def __init__(self, t):
-        self.names = t
-        self.all = []
+    def __init__(self, table):
         self.x = []
         self.y = []
+        self.names = table
+        self.all = []
         self.klass = None
 
-        for col_name in t:
-            n = t.index(col_name)
-            col_name = col_name.strip()
-            if col_name[0].isupper():
-                col = Num(n, col_name)
+        for all_column_names in table:
+            n = table.index(all_column_names)
+            all_column_names = all_column_names.strip()
+            if all_column_names[0].isupper():
+                col = Num(n, all_column_names)
             else:
-                col = Sym(n, col_name)
+                col = Sym(n, all_column_names)
             self.all.append(col)
 
-            if not col_name[-1] == "X":
-                if "!" in col_name:
+            if not all_column_names[-1] == "X":
+                if "!" in all_column_names:
                     self.klass=col
-                self.y.append(col) if re.findall("[!+-]$", col_name) else self.x.append(col)
+                self.y.append(col) if re.findall("[!+-]$", all_column_names) else self.x.append(col)
     
     def add(self, row):
-        for t in [self.x, self.y]:
-            for col in t:
+        for table in [self.x, self.y]:
+            for col in table:
                 col.add(row.cells[col.at])

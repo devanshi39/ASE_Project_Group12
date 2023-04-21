@@ -5,7 +5,6 @@
 ![GitHub forks](https://img.shields.io/github/forks/devanshi39/ASE_Project_Group12?style=social)
 ![GitHub issues](https://img.shields.io/github/issues/devanshi39/ASE_Project_Group12)
 ![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/devanshi39/ASE_Project_Group12)
-![GitHub release (latest by date)](https://img.shields.io/github/v/release/devanshi39/ASE_Project_Group12)
 ![GitHub pull requests](https://img.shields.io/github/issues-pr/devanshi39/ASE_Project_Group12)
 ![GitHub contributors](https://img.shields.io/github/contributors/devanshi39/ASE_Project_Group12)
 ![GitHub repo size](https://img.shields.io/github/repo-size/devanshi39/ASE_Project_Group12)

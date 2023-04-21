@@ -1,3 +1,12 @@
+[![Python 3.8](https://img.shields.io/badge/python-3.8-blue.svg)](https://www.python.org/downloads/release/python-3100/)
+![GitHub language count](https://img.shields.io/github/languages/count/devanshi39/ASE_Project_Group12)
+![Discord](https://img.shields.io/discord/1065117667415044118)
+![GitHub forks](https://img.shields.io/github/forks/Mansimran7/ASE_Group12_Hws?style=social)
+![GitHub issues](https://img.shields.io/github/issues/Mansimran7/ASE_Group12_Hws)
+![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/devanshi39/ASE_Project_Group12)
+![GitHub release (latest by date)](https://img.shields.io/github/v/release/devanshi39/ASE_Project_Group12)
+![GitHub pull requests](https://img.shields.io/github/issues-pr/devanshi39/ASE_Project_Group12)
+![GitHub contributors](https://img.shields.io/github/contributors/devanshi39/ASE_Project_Group12)
 ## Problem Statement
 The problem statement is to develop a multi-objective semi-supervised explanation system that can extract useful succinct summaries from a given dataset while working within a limited budget of accessing the values of any one example. The system should be able to select good examples from the dataset based on the extracted summary.
 

@@ -1,0 +1,20 @@
+        Kloc+    Effort-    Defects-    Months-    n_evals
+-----  -------  ---------  ----------  ---------  ---------
+all      94.02     624.41     3761.76      24.18          5
+sway1    26.72     102.73     1037.17      13.6           5
+sway2    18.04      86.64      562.6       11.36          5
+xpln1    72.51     255.97     2516.93      22.17          5
+xpln2     0          0           0          0             5
+top      94.02     624.41     3761.76      24.18          5
+
+
+                Kloc+    Effort-    Defects-    Months-
+--------------  -------  ---------  ----------  ---------
+all to all        =        =          =           =
+all to sway1      ≠        ≠          ≠           ≠
+all to sway2      ≠        ≠          ≠           ≠
+sway1 to sway2    ≠        ≠          ≠           ≠
+sway1 to xpln1    ≠        ≠          ≠           ≠
+sway2 to xpln2    ≠        ≠          ≠           ≠
+sway2 to xpln2    ≠        ≠          ≠           ≠
+sway1 to top      ≠        ≠          ≠           ≠

@@ -1,0 +1,20 @@
+        Lbs-    Acc+    Mpg+    n_evals
+-----  -------  ------  ------  ---------
+all    2970.42   15.57   23.84          6
+sway1  2461.92   16.3    29.17          6
+sway2  2243.58   17.5    24.17          6
+xpln1  2398.5    13.25   20             6
+xpln2  2398.5    13.25   20             6
+top    2970.42   15.57   23.84          6
+
+
+                Lbs-    Acc+    Mpg+
+--------------  ------  ------  ------
+all to all      =       =       =
+all to sway1    ≠       ≠       ≠
+all to sway2    ≠       ≠       ≠
+sway1 to sway2  ≠       ≠       ≠
+sway1 to xpln1  ≠       ≠       ≠
+sway2 to xpln2  ≠       ≠       ≠
+sway2 to xpln2  ≠       ≠       ≠
+sway1 to top    ≠       ≠       ≠
